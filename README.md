@@ -1,14 +1,13 @@
-## meta-marked
-#### The [marked](http://github.com/chjj/marked) markdown processor for Node.js with support for [YAML](http://yaml.org/) metadata
+## meta-remarkable
+#### The [remarkable](https://github.com/jonschlinkert/remarkable) markdown processor for Node.js with support for [YAML](http://yaml.org/) metadata
 
-![dependencies](https://david-dm.org/j201/meta-marked.png) 
+![dependencies](http://img.shields.io/david/bmathews/meta-remarkable.svg?style=flat-square)
 
-Just a quick extension I needed for processing markdown in Node. Props to Christopher Jeffrey for his excellent markdown processor 'marked'.
+meta-remarkable, forked from meta-marked, is a wrapper around remarkable. The constructor passes all arguments to the remarkable constructor.
 
-The `meta-marked` function behaves exactly the same as [`marked`](http://github.com/chjj/marked#usage), except for the following:
+The render function behaves exactly the same as [`remarkable`](https://github.com/jonschlinkert/remarkable#usage), except it instead returns an object with two properties: `meta`, which contains the metadata object or `null` if metadata isn't found, and `html`, which contains the parsed HTML.
 
-- Instead of returning a parsed string, `meta-marked` returns an object with two properties: `meta`, which contains the metadata object or `null` if metadata isn't found, and `html`, which contains the parsed HTML.
-- `metaMarked.noMeta` is a reference to the `marked` function, so it can be used to avoid parsing metadata.
+You have access to the raw remarkable via the `remarkable` property.
 
 In order to include metadata in a document, insert YAML at the top of the document surrounded by `---` and `...`. Note that if the given string doesn't start with `---`, it will not be interpreted as having metadata.
 
@@ -26,7 +25,6 @@ Scripts:
 ##Header
 Regular text and stuff goes here.
 ```
-
 You can also use the approach below, which will result in a very nice data table at the top of your markdown when viewing the file GitHub:
 
 ```
@@ -58,6 +56,41 @@ Both of the above will result in the following output:
 }
 ```
 
+###Usage
+
+Call `render` with the src text:
+```
+var metaRemarkable = require('meta-remarkable');
+var md = new metaRemarkable();
+var text = fs.readFileSync('myfile.md', 'utf8');
+var res = md.render();
+console.log(res.meta); // the parsed yaml->json
+console.log(res.html); // the parsed md->html
+```
+
+All options are passed through to remarkable:
+
+```
+var metaRemarkable = require('meta-remarkable');
+var md = new metaRemarkable('full', {
+    html: false,
+    linkify: true
+});
+```
+
+Use remarkable directly:
+```
+var metaRemarkable = require('meta-remarkable');
+var md = new metaRemarkable('full', {
+    html: false,
+    linkify: true
+});
+md.remarkable.set({
+    html: true
+});
+md.remarkable.render('# some markdown'); // bypass meta-remarkable.
+```
+
 ###Testing
 
 ```
@@ -66,4 +99,4 @@ npm test
 
 ---
 
-Licensed under [the MIT License](http://opensource.org/licenses/MIT). © 2013-2014 j201
+Licensed under [the MIT License](http://opensource.org/licenses/MIT). © 2014 bmathews

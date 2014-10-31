@@ -1,27 +1,29 @@
 {
-	"name": "meta-marked",
-	"version": "0.3.3",
-	"description": "The 'marked' markdown processor with a simple metadata system.",
-	"main": "./lib/meta-marked.js",
-	"keywords": [
-		"markdown",
-		"metadata",
-		"html"
-	],
-	"author": "j201 <j201.alex@gmail.com> (http://j201.github.io/)",
-	"license": "MIT",
-	"repository" : {
-		"type" : "git",
-		"url" : "git://github.com/j201/meta-marked.git"
-	},
-	"dependencies" : {
-		"marked" : "~0.3.2",
-		"js-yaml" : "~3.2.2"
-	},
-	"devDependencies" : {
-		"tape" : "~3.0.0"
-	},
-	"scripts" : {
-		"test" : "node ./test/test"
-	}
+  "name": "meta-remarkable",
+  "version": "0.1.0",
+  "description": "The 'remarkable' markdown processor with a yaml metadata system.",
+  "main": "./lib/meta-remarkable.js",
+  "keywords": [
+    "markdown",
+    "remarkable",
+    "metamarked",
+    "metadata",
+    "html"
+  ],
+  "author": "bmathews",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bmathews/meta-remarkable.git"
+  },
+  "dependencies": {
+    "js-yaml": "~3.2.2",
+    "remarkable": "^1.3.0"
+  },
+  "devDependencies": {
+    "tape": "~3.0.0"
+  },
+  "scripts": {
+    "test": "node ./test/test"
+  }
 }
