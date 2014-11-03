@@ -5,12 +5,13 @@
   "main": "./lib/meta-remarkable.js",
   "keywords": [
     "markdown",
+    "commonmark",
     "remarkable",
     "metamarked",
     "metadata",
     "html"
   ],
-  "author": "bmathews",
+  "author": "Brian Mathews <spoonart@gmail.com> [http://github.com/bmathews]",
   "license": "MIT",
   "repository": {
     "type": "git",
