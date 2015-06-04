@@ -1,7 +1,7 @@
 ## meta-remarkable
 #### The [remarkable](https://github.com/jonschlinkert/remarkable) markdown processor for Node.js with support for [YAML](http://yaml.org/) metadata
 
-![dependencies](http://img.shields.io/david/bmathews/meta-remarkable.svg?style=flat-square)
+[![Dependency Status](https://david-dm.org/bmathews/meta-remarkable.svg)](https://david-dm.org/bmathews/meta-remarkable)
 
 The render function behaves exactly the same as [`remarkable`](https://github.com/jonschlinkert/remarkable#usage), except it instead returns an object with two properties: `meta`, which contains the metadata object or `null` if metadata isn't found, and `html`, which contains the parsed HTML.
 
