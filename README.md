@@ -9,7 +9,7 @@ In order to include metadata in a document, insert YAML at the top of the docume
 
 ### Example
 
-```
+```md
 ---
 Title:   My awesome markdown file
 Author:  Me
@@ -23,7 +23,7 @@ Regular text and stuff goes here.
 ```
 You can also use the approach below, which will result in a very nice data table at the top of your markdown when viewing the file GitHub:
 
-```
+```md
 ---
 Title:   My awesome markdown file
 Author:  Me
@@ -38,7 +38,7 @@ Regular text and stuff goes here.
 
 Both of the above will result in the following output:
 
-```
+```json
 {
 	"meta": {
 		"Title": "My awesome markdown file",
@@ -55,7 +55,8 @@ Both of the above will result in the following output:
 ###Usage
 
 Call `render` with the src text:
-```
+
+```js
 var metaRemarkable = require('meta-remarkable');
 var md = new metaRemarkable();
 var text = fs.readFileSync('myfile.md', 'utf8');
@@ -66,7 +67,7 @@ console.log(res.html); // the parsed md->html
 
 All options are passed through to remarkable:
 
-```
+```js
 var metaRemarkable = require('meta-remarkable');
 var md = new metaRemarkable('full', {
     html: false,
@@ -75,7 +76,8 @@ var md = new metaRemarkable('full', {
 ```
 
 Use remarkable directly:
-```
+
+```js
 var metaRemarkable = require('meta-remarkable');
 var md = new metaRemarkable('full', {
     html: false,
@@ -89,13 +91,14 @@ md.remarkable.render('# some markdown'); // bypass meta-remarkable.
 
 ###Install
 With npm do:
-```
+
+```sh
 npm install meta-remarkable
 ```
 
 ###Testing
 
-```
+```sh
 npm test
 ```
 
